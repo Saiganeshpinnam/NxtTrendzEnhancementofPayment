@@ -42,7 +42,7 @@ const paymentMethodsList = [
 class Checkout extends Component {
   state = {
     isOrderPlaced: false,
-    disablePaymentMethod: true,
+    selectedPaymentId: null,
   }
 
   onClickingConfirmBtn = () => {
@@ -51,9 +51,15 @@ class Checkout extends Component {
     })
   }
 
+  onChangingInput = id => {
+    this.setState({
+      selectedPaymentId: id,
+    })
+  }
+
   render() {
-    const {isOrderPlaced, disablePaymentMethod} = this.state
-    console.log(disablePaymentMethod)
+    const {isOrderPlaced, selectedPaymentId} = this.state
+    const isCashOnDelivery = selectedPaymentId === 4
 
     return (
       <CartContext.Consumer>
@@ -62,18 +68,7 @@ class Checkout extends Component {
           const cartTotal = cartList
             .map(eachCartItem => eachCartItem.price * eachCartItem.quantity)
             .reduce((sum, itemTotal) => sum + itemTotal, 0)
-          const onChangingInput = id => {
-            // let isCashOnDeliverySelected = paymentMethodsList.find(
-            //   eachPaymentMethod => eachPaymentMethod.paymentMethodId === id,
-            // )
-            const isCashOnDeliverySelected = id === 4
-            if (isCashOnDeliverySelected) {
-              console.log(id)
-              this.setState({
-                disablePaymentMethod: false,
-              })
-            }
-          }
+
           return (
             <>
               <Popup
@@ -139,16 +134,13 @@ class Checkout extends Component {
                               key={eachPaymentMethod.paymentMethodId}
                               className="payment-type"
                             >
-                              <div
-                                className="input-container"
-                                disabled={disablePaymentMethod}
-                              >
+                              <div className="input-container">
                                 <input
                                   type="radio"
                                   id={eachPaymentMethod.paymentName}
                                   name="payment"
                                   onChange={() =>
-                                    onChangingInput(
+                                    this.onChangingInput(
                                       eachPaymentMethod.paymentMethodId,
                                     )
                                   }
@@ -166,24 +158,15 @@ class Checkout extends Component {
                           ))}
                         </ul>
                         <div className="confirm-cancel-btns-container">
-                          {disablePaymentMethod ? (
-                            <button
-                              type="button"
-                              onClick={this.onClickingConfirmBtn}
-                              className="opt-in-btn"
-                              disabled
-                            >
-                              Confirm
-                            </button>
-                          ) : (
-                            <button
-                              type="button"
-                              onClick={this.onClickingConfirmBtn}
-                              className="opt-in-btn"
-                            >
-                              Confirm
-                            </button>
-                          )}
+                          <button
+                            type="button"
+                            onClick={this.onClickingConfirmBtn}
+                            className="opt-in-btn"
+                            disabled={!isCashOnDelivery}
+                          >
+                            Confirm
+                          </button>
+
                           <button
                             type="button"
                             onClick={() => close()}
