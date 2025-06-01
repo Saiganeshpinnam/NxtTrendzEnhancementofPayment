@@ -1,0 +1,14 @@
+.checkout-button {
+  background-color: #1c66ed;
+  color: #ffffff;
+  height: 37px;
+  width: 100%;
+  border-width: 0px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.payments-container {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
