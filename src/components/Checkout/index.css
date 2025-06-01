@@ -1,3 +1,12 @@
+.checkout-container {
+  background-color: #e0e3de;
+  height: 100%;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .checkout-button {
   background-color: #1c66ed;
   color: #ffffff;
@@ -7,8 +16,105 @@
   margin-top: 7px;
   cursor: pointer;
 }
+
+.opt-out-btn {
+  background-color: #1c66ed;
+  color: #ffffff;
+  height: 37px;
+  width: 125px;
+  border-width: 0px;
+  margin: 7px;
+  cursor: pointer;
+}
+.opt-in-btn {
+  background-color: #377515;
+  color: #ffffff;
+  height: 37px;
+  width: 125px;
+  border-width: 0px;
+  margin: 7px;
+  cursor: pointer;
+}
+.order-summary-container {
+  height: 50%;
+  width: 60%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 7px;
+}
+.payment-method-heading {
+  font-size: 25px;
+  font-family: 'Roboto';
+  align-self: flex-start;
+  padding-left: 20%;
+  color: #413f4a;
+}
 .payments-container {
   display: flex;
   flex-direction: column;
   list-style-type: none;
+  height: 47%;
+  width: 60%;
+  background-color: #ffffff;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 7px;
+  margin: 0px;
+}
+.payment-type {
+  width: 90%;
+  color: #7f807e;
+  font-size: 18px;
+  font-family: 'Roboto';
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.total-order-price {
+  font-size: 23px;
+  font-family: 'Roboto';
+}
+.each-summary-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.summary-item-text {
+  color: #7f807e;
+  font-size: 18px;
+  font-family: 'Roboto';
+}
+.order-summary-heading {
+  font-size: 25px;
+  font-family: 'Roboto';
+  align-self: flex-start;
+  padding-left: 20%;
+  color: #413f4a;
+}
+.input-container {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.payment-image {
+  height: 35px;
+  width: 65px;
+}
+.order-Successful-container {
+  background-color: #ffffff;
+  height: 65vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 4px 4px 4px #8c8e91;
 }
