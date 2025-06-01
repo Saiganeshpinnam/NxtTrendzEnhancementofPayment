@@ -13,7 +13,7 @@ const CartSummary = () => (
         <>
           <h1 className="order-total-heading">
             Order Total:
-            <span className="cart-amount-value"> RS {cartTotal}/-</span>
+            <span className="cart-amount-value"> Rs {cartTotal}/-</span>
           </h1>
           <p className="cart-items-count">{cartList.length} Items in cart</p>
         </>
